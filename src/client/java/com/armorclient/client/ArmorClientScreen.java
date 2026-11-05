@@ -119,7 +119,8 @@ public final class ArmorClientScreen extends Screen {
     }
 
     @Override
-    public void extractRenderState(GuiGraphicsExtractor graphics, int mouseX, int mouseY, float delta) {
+    public void extractBackground(GuiGraphicsExtractor graphics, int mouseX, int mouseY, float delta) {
+        super.extractBackground(graphics, mouseX, mouseY, delta);
         int panelWidth = Math.min(PANEL_WIDTH, this.width - 24);
         int panelHeight = Math.min(PANEL_HEIGHT, this.height - 24);
         int panelX = (this.width - panelWidth) / 2;
@@ -130,6 +131,15 @@ public final class ArmorClientScreen extends Screen {
         graphics.fill(panelX, panelY, panelX + sidebarWidth, panelY + panelHeight, COLORS[1]);
         graphics.fill(panelX + sidebarWidth, panelY, panelX + sidebarWidth + 1, panelY + panelHeight, COLORS[2]);
         graphics.fill(panelX + sidebarWidth, panelY + 64, panelX + panelWidth, panelY + 65, COLORS[2]);
+    }
+
+    @Override
+    public void extractRenderState(GuiGraphicsExtractor graphics, int mouseX, int mouseY, float delta) {
+        int panelWidth = Math.min(PANEL_WIDTH, this.width - 24);
+        int panelHeight = Math.min(PANEL_HEIGHT, this.height - 24);
+        int panelX = (this.width - panelWidth) / 2;
+        int panelY = (this.height - panelHeight) / 2;
+        int sidebarWidth = Math.min(SIDEBAR_WIDTH, panelWidth / 3);
 
         super.extractRenderState(graphics, mouseX, mouseY, delta);
 
