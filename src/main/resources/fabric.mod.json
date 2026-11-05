@@ -1,0 +1,20 @@
+{
+  "schemaVersion": 1,
+  "id": "armor-client",
+  "version": "${version}",
+  "name": "Armor Client",
+  "description": "Minimalist client-side utility mod.",
+  "authors": ["Armor Client contributors"],
+  "license": "All-Rights-Reserved",
+  "environment": "client",
+  "entrypoints": {
+    "main": ["com.armorclient.ArmorClient"],
+    "client": ["com.armorclient.client.ArmorClientClient"]
+  },
+  "depends": {
+    "fabricloader": ">=0.20.1",
+    "minecraft": "~26.2",
+    "java": ">=25",
+    "fabric-api": "*"
+  }
+}
