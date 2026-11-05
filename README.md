@@ -1,17 +1,32 @@
 # Armor Client
 
-Projeto client-side para Minecraft Java 26.2 com Fabric.
+Client-side Minecraft Java 26.2 mod built with Fabric.
 
-## Ambiente de desenvolvimento
+## Features
 
+- Native Minecraft GUI based on the supplied Armor Client JSX reference.
+- Searchable module list and category filters (All, Combat, Movement, Visual, World, Player).
+- Local UI toggles for the sample module cards.
+- Open/close the menu with **Right Shift** (rebindable in Options → Controls).
+- English and Brazilian Portuguese keybind labels.
+
+## Build
+
+Requirements:
 - Java 25
-- Minecraft 26.2
-- Fabric Loader 0.20.1
-- Fabric API 0.161.0+26.2
-- Fabric Loom 1.19-SNAPSHOT
+- Gradle 9.5.1 (or a compatible Gradle installation)
+- Minecraft 26.2 / Fabric toolchain configured in Gradle
 
-Abra o repositório como projeto Gradle no IntelliJ IDEA.
+Run:
 
-A interface React enviada pelo usuário é a referência visual para a tela nativa do Minecraft. JSX não é executado diretamente pelo Fabric; a conversão para APIs de interface/renderização do Minecraft será feita em Java.
+```bash
+gradle build
+```
 
-Consulte [docs/GUI-PORT.md](docs/GUI-PORT.md) para os requisitos de layout e estilo.
+The JAR is generated in `build/libs/`.
+
+## Important scope note
+
+The supplied React/JSX file is a design reference; Fabric cannot execute React components. The interface has been ported to a native Java `Screen`.
+
+The sample cards (Kill Aura, Velocity, Flight, ESP, AutoClicker, X-Ray and Speed) currently only demonstrate local UI state. They do not activate gameplay modules or communicate with servers. No item duplication, packet spoofing, or server-exploit behavior is included.
