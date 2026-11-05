@@ -20,3 +20,11 @@ jobs:
           gradle-version: '9.8.0'
       - name: Build mod
         run: gradle build
+      - name: Upload mod JAR
+        uses: actions/upload-artifact@v4
+        with:
+          name: armor-client-fabric-26.2
+          path: |
+            build/libs/*.jar
+            !build/libs/*-sources.jar
+          if-no-files-found: error
